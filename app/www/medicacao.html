@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>petvida</title>
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="./assets/js/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/materialize.min.js"></script>
+
+    <script>
+        var db = window.localStorage;
+        
+        $(document).ready(function(){
+            $(".sidenav").sidenav();
+            $('select').formSelect();
+            $('.modal').modal();
+            /*
+            setTimeout(() => {
+                $("#AlertadeMedicamento").modal("open");
+            }, 3000);
+        */
+
+            $(".VerAlerta").click(function(){
+                $("#AlertadeMedicamento").modal("open");
+            })
+
+        });
+
+        
+
+
+
+
+    </script>
+    <style>
+        .cursor{
+            cursor:pointer;
+        }
+        .round-50{
+            border-radius: 50px;
+        }
+        .padding0{
+            padding:0px !important;
+        }
+        .underline{
+            text-decoration: underline;
+        }
+        #slide-out a{
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="max-width:none; width:100vw; height: 100vh; background: #00E3A2; overflow: auto;">
+        <div class="row">
+
+            <div class="col s12">&nbsp;</div>
+            <h5 class="col s12 center-align"><strong>Ficha de Medicações internas</strong></h5>
+            <div class="col s12">&nbsp;</div>
+            <div class="col s12">
+                <div class="col s12 grey lighten-5 round-5 p-15" > <!-- Cria uma div e adiciona a cor grey de fundo -->
+                    <div class="col s4 p-0 left-align" > <!-- Separa a tela em 3 partes -->
+                        <div class="col s12"><strong>Bento:</strong> Dipirona</div>
+                        <div class="col s12"><strong>Proprietário:</strong> Dona Ivone</div>
+                    </div>
+                    <div class="col s4 p-0" >
+                        <div class="col s12"><strong>Espécie:</strong> Felinio</div>
+                        <div class="col s12"><strong>Cor:</strong> Bicolor</div>
+                    </div>
+                    <div class="col s4 p-0 right-align" >
+                        <div class="col s12"><strong>Peso:</strong> 1,7kg</div>
+                        <div class="col s12"><strong>Raça:</strong> SRD</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col s12">&nbsp;</div>
+
+            
+
+
+            <div class="col s12">
+                <ul class="collection with-header VerAlerta"> <!-- Cria uma lista de itens na tela -->
+                    <li class="collection-header grey lighten-5 round-5" style="height: 50px;"> <!-- Esse item da lista serve como cabeçalho -->
+                        <h5 class="col s7 left m-0 p-0"><strong>Ficha de Medicações Internas</strong></h5>
+                        <div class="right red white-text center-align botaoAdicionarMedicamento">
+                            <i class="fa fa-plus mr-5"></i> ADICIONAR</a> 
+                        </div>
+                    </li>
+                    
+                    <li class=" collection-item" style="padding:5px !important"> <!-- Esse item a lista é um item normal -->
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="col s4"> <!-- Separa a tela em 3 partes -->
+                                    <h5 class="m-0 p-0 col s12"><strong>Lactobac</strong></h5>
+                                    1 comprimido
+                                </div>
+                                <div class="col s4">
+                                    <h5 class="m-0 p-0 col s12"><strong>Nutrifil</strong></h5>
+                                    1 ml
+                                </div>
+                                <div class="col s4 right-align">
+                                    <div class="chip yellow lighten-3">Clínica médica</div><br/>
+                                    <div class="chip red lighten-3">VO</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12 grey lighten-3 p-15 round-5" >
+                            <div class="col s2 offset-s1 center-align"> <!-- Separa a tela em 5 partes -->
+                                <h5 class="col s12 p-0 m-5">24/02/2022</h5>
+                                <div class="chip green lighten-3 col s12"> <!-- cria um circulo verde -->
+                                    <h6>16:00  <i class="fa fa-check-square green white-text"></i> Bruna</h6>
+                                </div>
+                                <div class="chip green lighten-3 col s12">
+                                    <h6>18:00  <i class="fa fa-check-square green white-text"></i> Luiza</h6>
+                                </div>
+                            </div>
+                            <div class="col s2 center-align">
+                                <h5 class="col s12 p-0 m-5">25/02/2022</h5>
+                                <div class="chip green lighten-3 col s12">
+                                    <h6>16:00  <i class="fa fa-check-square green white-text"></i> Bruna</h6>
+                                </div>
+                                <div class="chip red  col s12">
+                                    <h6>18:00  <i class="fa fa-exclamation-triangle orange "></i> </h6>
+                                </div>
+                            </div>
+                            <div class="col s2 center-align">
+                                <h5 class="col s12 p-0 m-5">26/02/2022</h5>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>16:00  </h6>
+                                </div>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>18:00   </h6>
+                                </div>
+                            </div>
+                            <div class="col s2 center-align">
+                                <h5 class="col s12 p-0 m-5">27/02/2022</h5>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>16:00  </h6>
+                                </div>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>18:00   </h6>
+                                </div>
+                            </div>
+                            <div class="col s2 center-align">
+                                <h5 class="col s12 p-0 m-5">28/02/2022</h5>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>16:00  </h6>
+                                </div>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>18:00   </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </li>
+
+                    <div class="col s12">&nbsp;</div>
+
+                    <!-- Primeira divisão de cessão da ficha de medicações internas-->
+
+                    <li class=" collection-item" style="padding:5px !important"> <!-- Esse item a lista é um item normal -->
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="col s4"> <!-- Separa a tela em 3 partes -->
+                                    <h5 class="m-0 p-0 col s12"><strong>Curativo</strong></h5>
+                                    2ml NXXI SPRAY, 5ml pomada Utoglos 
+                                </div>
+                                <div class="col s4">
+                                </div>
+                                <div class="col s4 right-align">
+                                    <div class="chip yellow lighten-3">Clínica médica</div><br/>
+                                    <div class="chip blue lighten-5">TP</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12 grey lighten-3 p-15 round-5" >
+                            <div class="col s2 offset-s1 center-align"> 
+                                <h5 class="col s12 p-0 m-5">24/02/2022</h5>
+                                <div class="chip green lighten-3 col s12"> 
+                                    <h6>16:00  <i class="fa fa-check-square green white-text"></i> Bruna</h6>
+                                </div>
+                                <div class="chip green lighten-3 col s12">
+                                    <h6>18:00  <i class="fa fa-check-square green white-text"></i> Luiza</h6>
+                                </div>
+                            </div>
+                            <div class="col s2 center-align">
+                                <h5 class="col s12 p-0 m-5">25/02/2022</h5>
+                                <div class="chip green lighten-3 col s12">
+                                    <h6>16:00  <i class="fa fa-check-square green white-text"></i> Bruna</h6>
+                                </div>
+                                <div class="chip red  col s12">
+                                    <h6>18:00  <i class="fa fa-exclamation-triangle orange "></i> </h6>
+                                </div>
+                            </div>
+                            <div class="col s2 center-align">
+                                <h5 class="col s12 p-0 m-5">26/02/2022</h5>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>16:00  </h6>
+                                </div>
+                                <div class="chip white lighten-3 col s12">
+                                    <h6>18:00   </h6>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12">&nbsp;</div>
+
+                        <div class="col s12 blue lighten-5 p-15 round-5" >Limpeza após aplicar NXXI SPRAY + Pomada Utoglos </div>
+
+                        <div style="clear: both;"></div>
+                    </li>
+                    
+                    <div class="col s12">&nbsp;</div>
+
+                        <!-- Primeira divisão de cessão da ficha de medicações internas-->
+
+                        <li class=" collection-item" style="padding:5px !important"> <!-- Esse item a lista é um item normal -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="col s4"> <!-- Separa a tela em 3 partes -->
+                                        <h5 class="m-0 p-0 col s12"><strong>Dipirona</strong></h5>
+                                        2ml NXXI SPRAY, 5ml pomada Utoglos 
+                                    </div>
+                                    <div class="col s4">
+                                        <h5 class="m-0 p-0 col s12"><strong></strong></h5>
+                                    </div>
+                                    <div class="col s4 right-align">
+                                        <div class="chip yellow lighten-3">Clínica médica</div><br/>
+                                        <div class="chip red lighten-3">VO</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col s12 grey lighten-3 p-15 round-5" >
+                                <div class="col s2 offset-s1 center-align"> <!-- Separa a tela em 5 partes -->
+                                    <h5 class="col s12 p-0 m-5">24/02/2022</h5>
+                                    <div class="chip green lighten-3 col s12"> <!-- cria um circulo verde -->
+                                        <h6>16:00  <i class="fa fa-check-square green white-text"></i> Bruna</h6>
+                                    </div>
+                                    <div class="chip green lighten-3 col s12">
+                                        <h6>18:00  <i class="fa fa-check-square green white-text"></i> Luiza</h6>
+                                    </div>
+                                </div>
+                                <div class="col s2 center-align">
+                                    <h5 class="col s12 p-0 m-5">25/02/2022</h5>
+                                    <div class="chip green lighten-3 col s12">
+                                        <h6>16:00  <i class="fa fa-check-square green white-text"></i> Bruna</h6>
+                                    </div>
+                                    <div class="chip red col s12">
+                                        <h6>18:00  <i class="fa fa-exclamation-triangle orange "></i> </h6>
+                                    </div>
+                                </div>
+                                <div class="col s2 center-align">
+                                    <h5 class="col s12 p-0 m-5">26/02/2022</h5>
+                                    <div class="chip white lighten-3 col s12">
+                                        <h6>16:00  </h6>
+                                    </div>
+                                    <div class="chip white lighten-3 col s12">
+                                        <h6>18:00   </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </li>
+
+
+                </ul>
+            </div>
+
+
+
+            <div class="col s12">&nbsp;</div>
+            <div class="col s12">
+                <ul class="collection with-header VerAlerta"> <!-- Cria uma nova seção na tela com lista de itens -->
+                    <li class="collection-header grey lighten-5 round-5" style="height: 50px;"> <!-- Cria novo cabeçalho -->
+                        <h5 class="col s7 left m-0 p-0"><strong>Registos</strong></h5>
+                        <div class="right red white-text center-align botaoAdicionarMedicamento">
+                            <i class="fa fa-plus mr-5"></i> ADICIONAR
+                        </div>
+                    </li>
+                    
+                    <li class=" collection-item" style="padding:5px !important"> <!-- Cria um item normal da lista -->
+                        <h5 class="col s12"><strong>22/10/2022</strong></h5>
+                        <ul class="collection"> <!-- Cria uma lista dentro da lista original -->
+                            <li class="collection-item" style="height:40px !important">
+                                <div class="col s2"><strong>10:21</strong></div>
+                                <div class="col s4">Bruna</div>
+                                <div class="col s6">Comeu ração seca e bebeu água</div>
+                            </li>
+                            <li class="collection-item" style="height:40px !important">
+                                <div class="col s2"><strong>18:20</strong></div>
+                                <div class="col s4">Luiza</div>
+                                <div class="col s6">Defecou</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" collection-item" style="padding:5px !important">
+                        <h5 class="col s12"><strong>23/10/2022</strong></h5>
+                        <ul class="collection">
+                            <li class="collection-item" style="height:40px !important">
+                                <div class="col s2"><strong>10:21</strong></div>
+                                <div class="col s4">Bruna</div>
+                                <div class="col s6">Comeu ração seca e bebeu água</div>
+                            </li>
+                            <li class="collection-item" style="height:40px !important">
+                                <div class="col s2"><strong>18:20</strong></div>
+                                <div class="col s4">Luiza</div>
+                                <div class="col s6">Defecou</div>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="AlertadeMedicamento" class="modal">
+        <div class="modal-content">
+
+            <div class="col s12">
+                <div class="col s8 offset-s2 grey lighten-5 round-5 p-15" >
+                    <div class="col s12 p-0" >
+                        <div class="col s6"><strong>Dipirona</strong></div><div class="right center-align"><strong>25/02/2022</strong></div>
+                    </div>
+                    
+                    <div class="col s12">&nbsp;</div>
+
+                    <div class="col s8 p-0" >
+                        <div class="col s12">2 ml NXXI SPRAY</div>
+                        <div class="col s12">5 ml pomada Utoglos</div>
+                    </div>
+
+                    <div class="col s4 p-0">
+                        <div class="chip red col s6 right-align" id="hora">
+                            <h6>18:00  <i class="fa fa-exclamation-triangle orange "></i> </h6>
+                        </div>
+                    </div>
+                    
+                    <div class="col s12">&nbsp;</div>
+
+                    <div class="col s12 blue lighten-5 round-5 p-15" >
+                        <div class="col s12">Limpeza após aplicar NXXI SPRAY + Pomada Utoglos </div>
+                    </div>
+
+                    <div class="col s12">&nbsp;</div>
+                    
+                    <div class="input-field col s6" id="Funcionario">
+                        <select>
+                          <option value="" disabled selected>Selecionar</option>
+                          <option value="Bruna">Bruna</option>
+                          <option value="Luiza">Luiza</option>
+                        </select>
+                        <label></label>
+                      </div>
+
+                      <div class="row">
+                        <form class="col s6" id="Hora">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <input placeholder="Horário" id="first_name" type="text" class="validate">
+                              <label for="first_name"></label>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="col s12">&nbsp;</div>
+
+                      <div>
+                          <input type="text" id="Texto">
+                      </div>
+
+                      <div class="col s12">&nbsp;</div>
+
+                      <div>
+                        <a id="btnSalvar" class="waves-effect waves-light btn teal darken-1 accent-4 col s12">Registrar</a>
+                      </div>
+                      <div class="col s12">&nbsp;</div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
